@@ -23,6 +23,7 @@
 
         <!-- Annotated entity classes -->
         <mapping class="com.chronomaster.AppUser"/>
+        <mapping class="com.chronomaster.Human"/>
 
     </session-factory>
 </hibernate-configuration>

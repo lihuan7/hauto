@@ -4,4 +4,8 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>GetUserServlet</servlet-name>
+    <servlet-class>com.datashow.GetUserServlet</servlet-class>
+  </servlet>
 </web-app>

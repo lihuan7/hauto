@@ -21,6 +21,9 @@ public class AppTest extends TestCase {
         AppUser user = new AppUser("firstuser");
         session.save(user);
 
+        Human human = new Human("Иванов","Иван","Иваныч");
+        session.save(human);
+
         session.getTransaction().commit();
         session.close();
     }
