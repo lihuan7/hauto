@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hauto:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="hauto.war">
+      <element id="artifact" artifact-name="hauto:war exploded" />
+    </root>
+  </artifact>
+</component>
