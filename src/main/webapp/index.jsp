@@ -14,7 +14,53 @@
 <body>
 
 <form>
-    Enter Your Name: <input type="text" id="userName"/>
+    <table>
+        <tr>
+            <td><label><b>ФИО</b></label></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Фамилия: </td><td>    <input type="text" id="lastName"/></td>
+            <td>Имя: </td><td>    <input type="text" id="fistName"/></td>
+            <td>Отчество:</td><td>         <input type="text" id="middleName"/></td>
+        </tr>
+        <tr>
+            <td>    <label><b>Город</b></label></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Название:</td> <td>     <input type="text" id="cityName"/></td>
+            <td></td> <td></td>
+            <td></td>  <td></td>
+        </tr>
+        <tr>
+            <td>    <label><b>Авто</b></label></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Марка:</td>  <td>    <input type="text" id="autoMark"/></td>
+            <td></td> <td></td>
+            <td></td>  <td></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>  <td align="right"><button type="button" id="submitButton">Найти</button></td>
+        </tr>
+    </table>
+
 </form>
 <br>
 <br>

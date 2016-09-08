@@ -11,11 +11,23 @@
 //
 
 $(document).ready(function() {
-	$('#userName').blur(function() {
+	// $('#userName').blur(function() {
+	// 	$.ajax({
+	// 		url : 'GetUserServlet',
+	// 		data : {
+	// 			userName : $('#userName').val()
+	// 		},
+	// 		success : function(responseText) {
+	// 			$('#ajaxGetUserServletResponse').text(responseText);
+	// 		}
+	// 	});
+	// });
+
+	$('button#submitButton').click( function() {
 		$.ajax({
 			url : 'GetUserServlet',
 			data : {
-				userName : $('#userName').val()
+				userName : $('#lastName').val()
 			},
 			success : function(responseText) {
 				$('#ajaxGetUserServletResponse').text(responseText);
