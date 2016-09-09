@@ -1,55 +1,22 @@
 package com.entity;
 
+import com.service.HumanService;
 import junit.framework.TestCase;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest extends TestCase {
 
-	private EntityManager entityManager;
+    private HumanService humanService = new HumanService();
 
-	public void testApp() {
-
-		entityManager = Persistence.createEntityManagerFactory("entityManager")
-				.createEntityManager();
-
-		entityManager.getTransaction().begin();
-
-		AppUser user = new AppUser("seconduser");
-		entityManager.persist(user);
-
-		System.out.println("add second user");
-
-
-		AutoMobile autoMobile = new AutoMobile("Volkswagen","golf-6");
-
-		List<AutoMobile> autoMobiles = new ArrayList<AutoMobile>();
-
-		autoMobiles.add(autoMobile);
-
-		Human human = new Human("Сидоров","Иван","Петрович",autoMobiles);
-
-		entityManager.persist(human);
-
-		entityManager.flush();
-
-		autoMobile.setHuman(human);
-
-		entityManager.persist(autoMobile);
-
-		entityManager.flush();
-
-		System.out.println("add autoMobile");
-
-
-
-		entityManager.getTransaction().commit();
-		entityManager.close();
-	}
+    public void testApp() {
+        humanService.beginTransaction();
+        Human human = humanService.addHuman("Васильев", "Иван", "Петрович");
+        Human human1 = humanService.addHuman("Пертров", "Иван", "Петрович");
+        humanService.addAutoToHuman("Volkswagen", "Golf-6", human);
+        humanService.addAutoToHuman("Lada", "Vesta", human);
+        humanService.addAutoToHuman("Lada", "Niva", human1);
+        humanService.endTransaction();
+    }
 }

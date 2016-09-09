@@ -28,11 +28,10 @@ public class Human implements Serializable {
 
     }
 
-    public Human(String firstName, String middleName, String lastName, List<AutoMobile> autoMobiles) {
+    public Human(String firstName, String middleName, String lastName) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.autoMobiles = autoMobiles;
     }
 
     public void setAutoMobiles(List<AutoMobile> autoMobiles) {
