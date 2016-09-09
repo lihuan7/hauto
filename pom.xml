@@ -10,6 +10,7 @@
 
   <properties>
     <hibernate.version>4.2.15.Final</hibernate.version>
+    <postgresql.version>9.3-1102-jdbc41</postgresql.version>
   </properties>
 
   <dependencies>
@@ -23,7 +24,7 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>9.3-1102-jdbc41</version>
+      <version>${postgresql.version}</version>
     </dependency>
 
     <dependency>

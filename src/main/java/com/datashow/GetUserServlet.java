@@ -1,12 +1,15 @@
 package com.datashow;
 
+import com.entity.Human;
+import com.service.HumanSearchService;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-//@WebServlet("/GetUserServlet")
 public class GetUserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -16,9 +19,19 @@ public class GetUserServlet extends HttpServlet {
             userName = "Guest";
         }
 
-        String greetings = "Hello " + userName;
+        String greetings = "Hello :";
 
-        response.setContentType("text/plain");
+        HumanSearchService humanSearchService = new HumanSearchService();
+
+        List<Human> humanList = humanSearchService.getListHuman();
+
+        for(Human human : humanList)
+        {
+             greetings += human.getFirstName() +" "+human.getMiddleName()+ " "+ human.getLastName()+"\n";
+        }
+
+
+        response.setContentType("text/plain;charset=UTF-8");
         response.getWriter().write(greetings);
     }
 }
