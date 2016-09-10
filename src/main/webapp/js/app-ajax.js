@@ -1,15 +1,18 @@
-
-$(document).ready(function() {
-
-	$('button#submitButton').click( function() {
-		$.ajax({
-			url : 'GetUserServlet',
-			data : {
-				userName : $('#lastName').val()
-			},
-			success : function(responseText) {
-				$('#ajaxGetUserServletResponse').html(responseText);
-			}
-		});
-	});
+$(document).ready(function () {
+    $('button#submitButton').click(function () {
+        $.ajax({
+            url: 'FindHumanServlet',
+            data: {
+                lastName: $('#lastName').val(),
+                firstName: $('#firstName').val(),
+                middleName: $('#middleName').val(),
+                cityName: $('#cityName').val(),
+                autoMark: $('#autoMark').val(),
+                autoModel: $('#autoModel').val(),
+            },
+            success: function (responseText) {
+                $('#ajaxFindHumanServletResponse').html(responseText);
+            }
+        });
+    });
 });

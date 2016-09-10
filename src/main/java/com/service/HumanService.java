@@ -29,8 +29,8 @@ public class HumanService {
     }
 
 
-    public Human addHuman(final String firstName,final String middleName,final String lastName){
-        Human human = new Human(firstName,middleName,lastName);
+    public Human addHuman(final String firstName,final String middleName,final String lastName, final String city){
+        Human human = new Human(firstName,middleName,lastName, city);
         entityManager.persist(human);
         entityManager.flush();
         return  human;
@@ -50,7 +50,7 @@ public class HumanService {
         return result;
     }
 
-    public List<Human> findListHuman(final Map<HumanFilterEnum, String> filterColumnList) {
+    public List<Human> findHumans(final Map<HumanFilterEnum, String> filterColumnList) {
         final StringBuilder strQuery = new StringBuilder(300);
         strQuery.append("select s from Human s where ");
         strQuery.append(getWhereClause(filterColumnList));
@@ -65,11 +65,20 @@ public class HumanService {
             sbuf.append("s.firstName = ?1 and ");  //Указанный статус
         }
         if (filterColumnList.containsKey(HumanFilterEnum.middleName)) {
-            sbuf.append("s.middleName >= ?2 and ");
+            sbuf.append("s.middleName = ?2 and ");
         }
         if (filterColumnList.containsKey(HumanFilterEnum.lastName)) {
-            sbuf.append("s.lastName < ?3 and ");
+            sbuf.append("s.lastName = ?3 and ");
         }
+        if (filterColumnList.containsKey(HumanFilterEnum.cityName)) {
+            sbuf.append("s.cityName = ?4 and ");
+        }
+//        if (filterColumnList.containsKey(HumanFilterEnum.autoMark)) {
+//            sbuf.append("s.cityName = ?5 and ");
+//        }
+//        if (filterColumnList.containsKey(HumanFilterEnum.autoModel)) {
+//            sbuf.append("s.lastName = ?6 and ");
+//        }
         sbuf.append("1 = 1 ");
         return sbuf.toString();
     }
@@ -83,6 +92,9 @@ public class HumanService {
         }
         if (filterColumnList.containsKey(HumanFilterEnum.lastName)) {
             query.setParameter(3, filterColumnList.get(HumanFilterEnum.lastName));
+        }
+        if (filterColumnList.containsKey(HumanFilterEnum.cityName)) {
+            query.setParameter(4, filterColumnList.get(HumanFilterEnum.cityName));
         }
     }
 }

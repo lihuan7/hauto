@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td>Фамилия: </td><td>    <input type="text" id="lastName"/></td>
-            <td>Имя: </td><td>    <input type="text" id="fistName"/></td>
+            <td>Имя: </td><td>    <input type="text" id="firstName"/></td>
             <td>Отчество:</td><td>         <input type="text" id="middleName"/></td>
         </tr>
         <tr>
@@ -50,8 +50,8 @@
             <td></td>
         </tr>
         <tr>
-            <td> Марка:</td>  <td>    <input type="text" id="autoMark"/></td>
-            <td></td> <td></td>
+            <td> Марка:</td>  <td> <input type="text" id="autoMark"/></td>
+            <td> Модель:</td> <td> <input type="text" id="autoModel"/></td>
             <td></td>  <td></td>
         </tr>
         <tr>
@@ -66,6 +66,6 @@
 <br>
 
 <strong>Ajax Response</strong>:
-<div id="ajaxGetUserServletResponse"></div>
+<div id="ajaxFindHumanServletResponse"></div>
 </body>
 </html>
