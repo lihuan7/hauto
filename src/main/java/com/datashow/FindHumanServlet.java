@@ -4,6 +4,7 @@ import com.entity.AutoMobile;
 import com.entity.Human;
 import com.service.HumanFilterEnum;
 import com.service.HumanService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,8 @@ import java.util.Map;
 
 public class FindHumanServlet extends HttpServlet {
 
+    private static final Logger logger = Logger.getLogger(FindHumanServlet.class);
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         final String firstName = request.getParameter("firstName");
@@ -24,6 +27,8 @@ public class FindHumanServlet extends HttpServlet {
         final String cityName = request.getParameter("cityName");
         final String autoMark = request.getParameter("autoMark");
         final String autoModel = request.getParameter("autoModel");
+
+        logger.info("firstName : "+ request.getParameter("firstName"));
 
 
         Map<HumanFilterEnum,String> filterMap = new HashMap<HumanFilterEnum, String>();
