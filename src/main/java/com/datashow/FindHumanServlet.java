@@ -26,34 +26,34 @@ public class FindHumanServlet extends HttpServlet {
         final String autoModel = request.getParameter("autoModel");
 
 
-        Map<HumanFilterEnum,String> stringMap = new HashMap<HumanFilterEnum, String>();
+        Map<HumanFilterEnum,String> filterMap = new HashMap<HumanFilterEnum, String>();
 
         if (lastName!=null&&lastName.trim().length()>0) {
-            stringMap.put(HumanFilterEnum.lastName, lastName.trim());
+            filterMap.put(HumanFilterEnum.lastName, lastName.trim());
         }
 
         if (firstName!=null&&firstName.trim().length()>0) {
-            stringMap.put(HumanFilterEnum.firstName, firstName.trim());
+            filterMap.put(HumanFilterEnum.firstName, firstName.trim());
         }
 
         if (middleName!=null&&middleName.trim().length()>0) {
-            stringMap.put(HumanFilterEnum.middleName, middleName.trim());
+            filterMap.put(HumanFilterEnum.middleName, middleName.trim());
         }
 
         if (cityName!=null&&cityName.trim().length()>0) {
-            stringMap.put(HumanFilterEnum.cityName, cityName.trim());
+            filterMap.put(HumanFilterEnum.cityName, cityName.trim());
         }
 
         if (autoMark!=null&&autoMark.trim().length()>0) {
-            stringMap.put(HumanFilterEnum.autoMark, autoMark.trim());
+            filterMap.put(HumanFilterEnum.autoMark, autoMark.trim());
         }
 
         if (autoModel!=null&&autoModel.trim().length()>0) {
-            stringMap.put(HumanFilterEnum.autoModel, autoModel.trim());
+            filterMap.put(HumanFilterEnum.autoModel, autoModel.trim());
         }
 
         HumanService humanService = new HumanService();
-        List<Human> humanList = humanService.findHumans(stringMap);
+        List<Human> humanList = humanService.findHumans(filterMap);
 
         String greetings = "<table>";
         for(Human human : humanList)
@@ -62,6 +62,9 @@ public class FindHumanServlet extends HttpServlet {
             for(AutoMobile autoMobile : human.getAutoMobiles()){
                 autos+=  autoMobile.getBrand() +" "+ autoMobile.getModel()+"\n";
             }
+
+            //if(filterMap.containsKey(HumanFilterEnum.autoMark))
+
             greetings +="<tr><td>"+ human.getFirstName() +"</td><td>"+human.getMiddleName()+ "</td><td> "+ human.getLastName()+"</td><td>"+autos+ "</td></tr>\n";
         }
 

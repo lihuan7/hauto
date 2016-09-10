@@ -39,7 +39,6 @@ public class Human implements Serializable {
     }
 
 
-
     public List<AutoMobile> getAutoMobiles() {
         return this.autoMobiles;
     }

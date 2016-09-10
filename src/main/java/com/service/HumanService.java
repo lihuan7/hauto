@@ -52,33 +52,32 @@ public class HumanService {
 
     public List<Human> findHumans(final Map<HumanFilterEnum, String> filterColumnList) {
         final StringBuilder strQuery = new StringBuilder(300);
-        strQuery.append("select s from Human s where ");
+
+        strQuery.append("SELECT s.* FROM human  s LEFT OUTER JOIN automobile a ON s.human_id = a.human_id  WHERE ");
         strQuery.append(getWhereClause(filterColumnList));
-        final Query query = entityManager.createQuery(strQuery.toString());
+        Query query = entityManager.createNativeQuery(strQuery.toString(), Human.class);
         substituteParams(filterColumnList, query);
-        return query.getResultList();
+        return  (List<Human>) query.getResultList();
     }
 
     private String getWhereClause(final Map<HumanFilterEnum, String> filterColumnList) {
         final StringBuilder sbuf = new StringBuilder(150);
         if (filterColumnList.containsKey(HumanFilterEnum.firstName)) {
-            sbuf.append("s.firstName = ?1 and ");  //Указанный статус
+            sbuf.append("s.firstname = ?1 and ");  //Указанный статус
         }
         if (filterColumnList.containsKey(HumanFilterEnum.middleName)) {
-            sbuf.append("s.middleName = ?2 and ");
+            sbuf.append("s.middlename = ?2 and ");
         }
         if (filterColumnList.containsKey(HumanFilterEnum.lastName)) {
-            sbuf.append("s.lastName = ?3 and ");
+            sbuf.append("s.lastname = ?3 and ");
         }
         if (filterColumnList.containsKey(HumanFilterEnum.cityName)) {
-            sbuf.append("s.cityName = ?4 and ");
+            sbuf.append("s.cityname = ?4 and ");
         }
-//        if (filterColumnList.containsKey(HumanFilterEnum.autoMark)) {
-//            sbuf.append("s.cityName = ?5 and ");
-//        }
-//        if (filterColumnList.containsKey(HumanFilterEnum.autoModel)) {
-//            sbuf.append("s.lastName = ?6 and ");
-//        }
+        if (filterColumnList.containsKey(HumanFilterEnum.autoMark)) {
+            sbuf.append("a.brand = ?5 and ");
+        }
+
         sbuf.append("1 = 1 ");
         return sbuf.toString();
     }
@@ -96,5 +95,9 @@ public class HumanService {
         if (filterColumnList.containsKey(HumanFilterEnum.cityName)) {
             query.setParameter(4, filterColumnList.get(HumanFilterEnum.cityName));
         }
+        if (filterColumnList.containsKey(HumanFilterEnum.autoMark)) {
+            query.setParameter(5, filterColumnList.get(HumanFilterEnum.autoMark));
+        }
+
     }
 }
