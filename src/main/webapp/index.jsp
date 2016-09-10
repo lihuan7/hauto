@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form>
+<form name="frm">
     <table>
         <tr>
             <td><label><b>ФИО</b></label></td>

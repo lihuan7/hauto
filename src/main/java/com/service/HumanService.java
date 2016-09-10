@@ -53,7 +53,7 @@ public class HumanService {
     public List<Human> findHumans(final Map<HumanFilterEnum, String> filterColumnList) {
         final StringBuilder strQuery = new StringBuilder(300);
 
-        strQuery.append("SELECT s.* FROM human  s LEFT OUTER JOIN automobile a ON s.human_id = a.human_id  WHERE ");
+        strQuery.append("SELECT DISTINCT s.* FROM human  s LEFT OUTER JOIN automobile a ON s.human_id = a.human_id  WHERE ");
         strQuery.append(getWhereClause(filterColumnList));
         Query query = entityManager.createNativeQuery(strQuery.toString(), Human.class);
         substituteParams(filterColumnList, query);

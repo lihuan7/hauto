@@ -65,7 +65,7 @@ public class FindHumanServlet extends HttpServlet {
         {
             String autos = "";
             for(AutoMobile autoMobile : human.getAutoMobiles()){
-                autos+=  autoMobile.getBrand() +" "+ autoMobile.getModel()+"\n";
+                autos+=  autoMobile.getBrand() +" "+ autoMobile.getModel()+"<br/>";
             }
 
             //if(filterMap.containsKey(HumanFilterEnum.autoMark))
