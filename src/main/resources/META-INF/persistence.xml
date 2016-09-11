@@ -4,8 +4,7 @@
 	version="2.0">
 	<persistence-unit name="entityManager">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<!-- Annotated entity classes --> 
-        <class>com.entity.AppUser</class>
+		<!-- Annotated entity classes -->
         <class>com.entity.AutoMobile</class>
         <class>com.entity.Human</class>
 		<properties>

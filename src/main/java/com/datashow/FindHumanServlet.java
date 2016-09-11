@@ -60,7 +60,7 @@ public class FindHumanServlet extends HttpServlet {
         HumanService humanService = new HumanService();
         List<Human> humanList = humanService.findHumans(filterMap);
 
-        String greetings = "<table>";
+        String humanStr = "<table>";
         for(Human human : humanList)
         {
             String autos = "";
@@ -68,14 +68,12 @@ public class FindHumanServlet extends HttpServlet {
                 autos+=  autoMobile.getBrand() +" "+ autoMobile.getModel()+"<br/>";
             }
 
-            //if(filterMap.containsKey(HumanFilterEnum.autoMark))
-
-            greetings +="<tr><td>"+ human.getFirstName() +"</td><td>"+human.getMiddleName()+ "</td><td> "+ human.getLastName()+"</td><td>"+autos+ "</td></tr>\n";
+            humanStr +="<tr><td>"+ human.getFirstName() +"</td><td>"+human.getMiddleName()+ "</td><td> "+ human.getLastName()+"</td><td>"+autos+ "</td></tr>\n";
         }
 
-        greetings += "</table>";
+        humanStr += "</table>";
 
         response.setContentType("text/plain;charset=UTF-8");
-        response.getWriter().write(greetings);
+        response.getWriter().write(humanStr);
     }
 }
