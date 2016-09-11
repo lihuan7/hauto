@@ -8,6 +8,7 @@
         <class>com.entity.AutoMobile</class>
         <class>com.entity.City</class>
         <class>com.entity.Human</class>
+        <class>com.entity.User</class>
 		<properties>
 
 			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/hauto" />
