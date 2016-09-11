@@ -12,9 +12,12 @@ public class AppTest extends TestCase {
 
     public void testApp() {
         humanService.beginTransaction();
-        Human human = humanService.addHuman("Иван", "Петрович", "Васильев","г. Пермь");
-        Human human1 = humanService.addHuman("Андрей", "Алексеевич", "Сидоров", "г. Москва");
-        Human human2 = humanService.addHuman("Роман", "Александрович", "Никулин", "г. Самара");
+
+        City cityPerm = humanService.addCity("г. Пермь");
+
+        Human human = humanService.addHuman("Иван", "Петрович", "Васильев",cityPerm);
+        Human human1 = humanService.addHuman("Андрей", "Алексеевич", "Сидоров", cityPerm);
+        Human human2 = humanService.addHuman("Роман", "Александрович", "Никулин", cityPerm);
         humanService.addAutoToHuman("Volkswagen", "Golf-6", human);
         humanService.addAutoToHuman("Lada", "Vesta", human);
         humanService.addAutoToHuman("Lada", "Niva", human1);

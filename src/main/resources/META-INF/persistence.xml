@@ -6,6 +6,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- Annotated entity classes -->
         <class>com.entity.AutoMobile</class>
+        <class>com.entity.City</class>
         <class>com.entity.Human</class>
 		<properties>
 

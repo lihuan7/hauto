@@ -21,8 +21,9 @@ public class Human implements Serializable {
     String middleName;
     String lastName;
 
-
-    String city;
+    @OneToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "human", orphanRemoval = true)
     private List<AutoMobile> autoMobiles;
@@ -31,18 +32,16 @@ public class Human implements Serializable {
 
     }
 
-    public Human(final String firstName, final String middleName, final String lastName, final String city) {
+    public Human(final String firstName, final String middleName, final String lastName) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.city = city;
     }
 
 
     public List<AutoMobile> getAutoMobiles() {
         return this.autoMobiles;
     }
-
 
     public String getMiddleName() {
         return middleName;
@@ -72,11 +71,11 @@ public class Human implements Serializable {
         return human_id;
     }
 
-    public String getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
