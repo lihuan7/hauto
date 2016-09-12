@@ -22,39 +22,5 @@ $(document).ready(function () {
         }else{
             alert("Необходимо заполнить один из признаков для поиска");
         }
-
-        // $("#frm").validate({
-        //     rules: {
-        //         firstName: {           //input name: fullName
-        //             required: true,   //required boolean: true/false
-        //             minlength: 5,
-        //         },
-        //
-        //         messages: {               //messages to appear on error
-        //             firstName: {
-        //                 required: "Please put your full name.",
-        //                 minlength: "C'mon full name please."
-        //             },
-        //         },
-        //     },
-        //
-        //         submitHandler: function(form) {
-        //             $.ajax({
-        //                 url: 'FindHumanServlet',
-        //                 data: {
-        //                     lastName: $('#lastName').val(),
-        //                     firstName: $('#firstName').val(),
-        //                     middleName: $('#middleName').val(),
-        //                     cityName: $('#cityName').val(),
-        //                     autoMark: $('#autoMark').val(),
-        //                     autoModel: $('#autoModel').val(),
-        //                 },
-        //                 success: function (responseText) {
-        //                     $('#ajaxFindHumanServletResponse').html(responseText);
-        //                 }
-        //             });
-        //
-        //         }
-        //     });
     });
 });
