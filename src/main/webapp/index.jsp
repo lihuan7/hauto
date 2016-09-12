@@ -16,6 +16,22 @@
 <form name="frm">
     <table>
         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Пользователь: <%=request.getRemoteUser()%>&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+            <td><a href="logout.jsp">Нажмите здесь, чтобы выйти</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td><label><b>ФИО</b></label></td>
             <td></td>
             <td></td>
