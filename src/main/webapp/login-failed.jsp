@@ -3,7 +3,7 @@
 <html>
 <body>
 <p>
-    Sorry, login failed!
+    Неверный лонин или пароль!
 </p>
 </body>
 </html>

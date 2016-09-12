@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ page session="true"%>
 
-User '<%=request.getRemoteUser()%>' has been logged out.
+Пользователь '<%=request.getRemoteUser()%>' совершил выход.
 
 <% session.invalidate(); %>
 

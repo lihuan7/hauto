@@ -29,6 +29,11 @@ public class FindHumanServlet extends HttpServlet {
         final String autoModel = request.getParameter("autoModel");
 
         logger.info("firstName : "+ request.getParameter("firstName"));
+        logger.info("middleName : "+ request.getParameter("middleName"));
+        logger.info("lastName : "+ request.getParameter("lastName"));
+        logger.info("cityName : "+ request.getParameter("cityName"));
+        logger.info("autoMark : "+ request.getParameter("autoMark"));
+        logger.info("autoModel : "+ request.getParameter("autoModel"));
 
 
         Map<HumanFilterEnum,String> filterMap = new HashMap<HumanFilterEnum, String>();
