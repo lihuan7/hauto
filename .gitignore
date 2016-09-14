@@ -1,0 +1,29 @@
+#common
+target/
+out/
+classes/
+syntax:glob
+*.swp
+git.properties
+target.db
+bootCounter.agent
+
+#IDEA Project Files
+*iml
+*iws
+.idea
+*ipr
+*.ids
+ishopdb
+*.log
+atlassian-ide-plugin.xml
+
+# Eclipse Project Files
+.settings/
+.gwt/
+.project
+.classpath
+.metadata/
+
+# NetBeans Project Files
+nb-configuration.xml
