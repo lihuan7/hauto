@@ -30,12 +30,12 @@ public class FindHumanServlet extends HttpServlet {
         final String autoModel = request.getParameter("autoModel");
         final ObjectMapper mapper = new ObjectMapper();
 
-        logger.info("firstName : "+ request.getParameter("firstName"));
-        logger.info("middleName : "+ request.getParameter("middleName"));
-        logger.info("lastName : "+ request.getParameter("lastName"));
-        logger.info("cityName : "+ request.getParameter("cityName"));
-        logger.info("autoMark : "+ request.getParameter("autoMark"));
-        logger.info("autoModel : "+ request.getParameter("autoModel"));
+        logger.debug("firstName : "+ request.getParameter("firstName"));
+        logger.debug("middleName : "+ request.getParameter("middleName"));
+        logger.debug("lastName : "+ request.getParameter("lastName"));
+        logger.debug("cityName : "+ request.getParameter("cityName"));
+        logger.debug("autoMark : "+ request.getParameter("autoMark"));
+        logger.debug("autoModel : "+ request.getParameter("autoModel"));
 
 
         Map<HumanFilterEnum,String> filterMap = new HashMap<HumanFilterEnum, String>();
