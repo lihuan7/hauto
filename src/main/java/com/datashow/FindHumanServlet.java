@@ -2,6 +2,7 @@ package com.datashow;
 
 import com.entity.AutoMobile;
 import com.entity.Human;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.HumanFilterEnum;
 import com.service.HumanService;
 import org.apache.log4j.Logger;
@@ -27,6 +28,7 @@ public class FindHumanServlet extends HttpServlet {
         final String cityName = request.getParameter("cityName");
         final String autoMark = request.getParameter("autoMark");
         final String autoModel = request.getParameter("autoModel");
+        final ObjectMapper mapper = new ObjectMapper();
 
         logger.info("firstName : "+ request.getParameter("firstName"));
         logger.info("middleName : "+ request.getParameter("middleName"));
@@ -65,20 +67,21 @@ public class FindHumanServlet extends HttpServlet {
         HumanService humanService = new HumanService();
         List<Human> humanList = humanService.findHumans(filterMap);
 
-        String humanStr = "<table>";
-        for(Human human : humanList)
-        {
-            String autos = "";
-            for(AutoMobile autoMobile : human.getAutoMobiles()){
-                autos+=  autoMobile.getBrand() +" "+ autoMobile.getModel()+"<br/>";
-            }
-
-            humanStr +="<tr><td>"+ human.getFirstName() +"</td><td>"+human.getMiddleName()+ "</td><td> "+ human.getLastName()+"</td><td>"+autos+ "</td></tr>\n";
-        }
-
-        humanStr += "</table>";
+//        String humanStr = "<table>";
+//        for(Human human : humanList)
+//        {
+//            String autos = "";
+//            for(AutoMobile autoMobile : human.getAutoMobiles()){
+//                autos+=  autoMobile.getBrand() +" "+ autoMobile.getModel()+"<br/>";
+//            }
+//
+//            humanStr +="<tr><td>"+ human.getFirstName() +"</td><td>"+human.getMiddleName()+ "</td><td> "+ human.getLastName()+"</td><td>"+autos+ "</td></tr>\n";
+//        }
+//
+//        humanStr += "</table>";
 
         response.setContentType("text/plain;charset=UTF-8");
-        response.getWriter().write(humanStr);
+        //response.getWriter().write(humanStr);
+        response.getWriter().write(mapper.writeValueAsString(humanList));
     }
 }

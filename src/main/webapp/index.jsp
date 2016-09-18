@@ -9,6 +9,8 @@
 
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
+    <script src="js/json2html.js"></script>
+    <script src="js/jquery.json2html.js"></script>
     <script src="js/app-ajax.js" type="text/javascript"></script>
 </head>
 <body>

@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -31,6 +33,7 @@ public class AutoMobile implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "human_id", nullable = false)
+    @JsonBackReference
     private Human human;
 
     public Human getHuman() {

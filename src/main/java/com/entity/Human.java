@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -26,6 +28,7 @@ public class Human implements Serializable {
     private City city;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "human", orphanRemoval = true)
+    @JsonManagedReference
     private List<AutoMobile> autoMobiles;
 
     public Human() {
