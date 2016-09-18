@@ -2,20 +2,27 @@ $(document).ready(function () {
 
         $('button#submitButton').click(function () {
 
-            var transformTab = {
+            var carMap = {"tag":"div","html":"${brand} - ${model}"}
+            var mapTable = {
                 "tag": "table", "children": [
                     {
                         "tag": "tbody", "children": [
                         {
                             "tag": "tr", "children": [
                             {"tag": "td", "html": "${firstName}"},
-                            {"tag": "td", "html": "${middleName}"}
+                            {"tag": "td", "html": "${middleName}"},
+                            {"tag": "td", "html": "${lastName}"},
+                            {"tag": "td", "html": "${city.name}"},
+                            {"tag": "td", "html": function(){
+                                return( json2html.transform(this.autoMobiles,carMap) );
+                            }},
                         ]
                         }
                     ]
                     }
                 ]
             };
+
 
             if ((($('#lastName').val().length > 0) && ($('#firstName').val().length > 0) && ($('#middleName').val().length > 0))
                 || ($('#cityName').val().length > 0)
@@ -33,7 +40,7 @@ $(document).ready(function () {
                     },
                     success: function (responseText) {
                         //$('#ajaxFindHumanServletResponse').html(responseText);
-                        $('#ajaxFindHumanServletResponse').html(json2html.transform(responseText, transformTab));
+                        $('#ajaxFindHumanServletResponse').html(json2html.transform(responseText, mapTable));
                     }
                 });
             } else {
