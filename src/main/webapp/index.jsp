@@ -14,7 +14,24 @@
     <script src="js/app-ajax.js" type="text/javascript"></script>
 </head>
 <body>
-
+<%
+    String username=request.getRemoteUser();
+    String password=null;
+    String message="Username is : "+ username + "<br/> Password is :" + password ;
+    String rememberMe=request.getParameter("rememberMe");
+    if(rememberMe!=null)
+    {
+        Cookie usernameCookie = new Cookie("username-cookie", username);
+        Cookie passwordCookie = new Cookie("password-cookie", password);
+        usernameCookie.setMaxAge(24*60*60);
+        passwordCookie.setMaxAge(24*60*60);
+        response.addCookie(usernameCookie);
+        response.addCookie(passwordCookie);
+    }
+%>
+    <strong>
+    <%= message %>
+    </strong>
 <form name="frm">
     <table>
         <tr>
