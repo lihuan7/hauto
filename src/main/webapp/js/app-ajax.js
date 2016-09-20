@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         var carMap = {"tag": "div", "html": "${brand} - ${model}"}
         var tableMap = {
-            "tag": "table", "children": [
+            "tag": "table", "class":"wborder" , "children": [
                 {
                     "tag": "tbody", "children": [
                     {
