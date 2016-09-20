@@ -7,13 +7,13 @@ $(document).ready(function () {
             tag: 'tr',
             children: [{
                 "tag": "td",
+                "html": "${lastName}"
+            }, {
+                "tag": "td",
                 "html": "${firstName}"
             }, {
                 "tag": "td",
                 "html": "${middleName}"
-            }, {
-                "tag": "td",
-                "html": "${lastName}"
             }, {
                 "tag": "td",
                 "html": "${city.name}"
